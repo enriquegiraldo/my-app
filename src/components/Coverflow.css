@@ -1,0 +1,105 @@
+/* Coverflow Component Styles */
+.coverflow {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.coverflow-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.coverflow-nav-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.coverflow-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.coverflow-images-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 100px);
+  position: relative;
+  height: 300px;
+}
+
+.coverflow-image-wrapper {
+  position: absolute;
+  transition: all 0.5s ease;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.coverflow-image-wrapper.previous {
+  transform: translateX(-50%) scale(0.7);
+  left: 20%;
+  z-index: 1;
+}
+
+.coverflow-image-wrapper.next {
+  transform: translateX(50%) scale(0.7);
+  right: 20%;
+  z-index: 1;
+}
+
+.coverflow-image-wrapper.active {
+  transform: translateX(0) scale(1);
+  z-index: 2;
+  opacity: 1;
+}
+
+.coverflow-image {
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.coverflow-image-wrapper:hover .coverflow-image {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coverflow-images-container {
+    height: 200px;
+  }
+  
+  .coverflow-image {
+    max-width: 200px;
+    max-height: 200px;
+  }
+  
+  .coverflow-nav-button {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coverflow-images-container {
+    height: 150px;
+  }
+  
+  .coverflow-image {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}
